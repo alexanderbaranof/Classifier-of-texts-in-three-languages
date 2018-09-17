@@ -77,8 +77,14 @@ def clear_output():
         os.remove(OUTPUT_PATH+'2/' + file_path)
 
 
+def tmp_check_exist():
+    if not os.path.exists('./tmp/'):
+        os.makedirs('./tmp/')
+
+
 def main():
     clear_output()
+    tmp_check_exist()
     model = load_model()
     files_path = load_input_files_list()
     for file_path in files_path:
